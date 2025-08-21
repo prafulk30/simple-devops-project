@@ -13,7 +13,14 @@ pipeline {
         }
         stage('Run Container') {
             steps {
-                bat 'docker run -d -p 5002:5000 simple-devops-app'
+                bat '''
+                REM __define-ocg__ stop old container if running
+                docker stop simple-devops-container || echo "No container to stop"
+                docker rm simple-devops-container || echo "No container to remove"
+
+                REM Run new container with fixed name
+                docker run -d -p 5002:5000 --name simple-devops-container simple-devops-app
+                '''
             }
         }
     }
