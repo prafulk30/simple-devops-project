@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Run Container') {
             steps {
-                bat 'docker run -d -p 5001:5000 simple-devops-app'
+                bat 'docker run -d -p 5002:5000 simple-devops-app'
             }
         }
     }
