@@ -19,7 +19,7 @@ pipeline {
         docker rm simple-devops-container 2>nul || echo "No container to remove"
 
         REM Run new container with fixed name
-        docker run -d -p 5002:5000 --name simple-devops-container simple-devops-app
+        docker run -d -p 5003:5000 --name simple-devops-container simple-devops-app
         '''
         }
         }
